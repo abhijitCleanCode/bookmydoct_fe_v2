@@ -31,7 +31,7 @@ export default function AddDoctor({ isAddDrawerOpen, setIsAddDrawerOpen }) {
   const [schedule, setSchedule] = useState([
     {
       id: "1",
-      day: "Mon",
+      day: "Monday",
       startTime: "09:00",
       endTime: "12:00",
       maxSlots: "10",
@@ -71,7 +71,7 @@ export default function AddDoctor({ isAddDrawerOpen, setIsAddDrawerOpen }) {
     setDoctor({
       ...doctor,
       appointmentsSchedule: schedule.map((schedule) => ({
-        day: schedule.day.toUpperCase(),
+        day: schedule.day,
         startTime: schedule.startTime,
         endTime: schedule.endTime,
         maxSlots: schedule.maxSlots,
@@ -91,7 +91,7 @@ export default function AddDoctor({ isAddDrawerOpen, setIsAddDrawerOpen }) {
       ...schedule,
       {
         id: (schedule.length + 1).toString(),
-        day: "Mon",
+        day: "Monday",
         startTime: "09:00",
         endTime: "17:00",
         maxSlots: "00",
@@ -329,15 +329,15 @@ export default function AddDoctor({ isAddDrawerOpen, setIsAddDrawerOpen }) {
                         <SelectContent>
                           {[
                             "Mon",
-                            "Tue",
-                            "Wed",
-                            "Thu",
+                            "Tues",
+                            "Wednes",
+                            "Thurs",
                             "Fri",
-                            "Sat",
+                            "Satur",
                             "Sun",
                           ].map((d) => (
-                            <SelectItem key={d} value={d}>
-                              {d}
+                            <SelectItem key={d} value={d+"day"}>
+                              {d+"day"}
                             </SelectItem>
                           ))}
                         </SelectContent>

@@ -14,9 +14,9 @@ const useClinicStore = create(
     fetchDoctors: async () => {
       try {
         set({ isLoading: true });
-        const res = await api.get("/api/v1/clinic/get-doctors");
+        const res = await api.get("/clinic/get-doctors");
         console.log("res", res);
-        set({ doctors: res.data.doctors });
+        set({ doctors: res.data.data.doctors });
         set({ isLoading: false });
       } catch (err) {
         console.log(err);
@@ -26,8 +26,10 @@ const useClinicStore = create(
     addDoctor: async (doctor) => {
       try {
         set({ isLoading: true });
-        const res = await api.post("/clinic/doctors/", doctor);
-        set((state) => ({ doctors: [...state.doctors, res.data.doctor] }));
+        const res = await api.post("/clinic/add-doctor", doctor);
+        set(async (state) => {
+          await state.fetchDoctors();
+        });
         toast.success("Doctor added successfully");
         set({ isLoading: false });
       } catch (err) {
@@ -40,7 +42,7 @@ const useClinicStore = create(
     updateDoctor: async (doctor, id) => {
       try {
         set({ isLoading: true });
-        const res = await api.put(`/clinic/doctors/${id}`, doctor);
+        const res = await api.put(`/clinic/update-doctor/${id}`, doctor);
         set(async (state) => {
           await state.fetchDoctors();
         });
@@ -55,10 +57,10 @@ const useClinicStore = create(
     deleteDoctor: async (id) => {
       try {
         set({ isLoading: true });
-        await api.delete(`/clinic/doctors/${id}`);
-        set((state) => ({
-          doctors: state.doctors.filter((doctor) => doctor._id !== id),
-        }));
+        await api.delete(`/clinic/delete-doctor/${id}`);
+        set(async (state) => {
+          await state.fetchDoctors();
+        });
         toast.success("Doctor deleted successfully");
         set({ isLoading: false });
       } catch (err) {
@@ -69,8 +71,11 @@ const useClinicStore = create(
     getClinicDetails: async () => {
       try {
         set({ isLoading: true });
-        const res = await api.get("/clinic/");
-        set({ clinicDetails: res.data.clinicDetails });
+        const res = await api.get("/clinic/get-clinic-details");
+        if (res.data.statusCode === 200) {
+          set({ clinicDetails: res.data.data.clinicDetails });
+
+        }
         set({ isLoading: false });
       } catch (err) {
         console.log(err);
@@ -80,9 +85,9 @@ const useClinicStore = create(
     updateClinicDetails: async (clinicDetails) => {
       try {
         set({ isLoading: true });
-        const res = await api.put("/clinic/", clinicDetails);
+        const res = await api.put("/clinic/update-clinic", clinicDetails);
         toast.success("Clinic details updated successfully");
-        set({ clinicDetails: res.data.clinic });
+        set({ clinicDetails: res.data.data.clinicDetails });
         set({ isLoading: false });
       } catch (err) {
         console.log(err);

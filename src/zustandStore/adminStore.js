@@ -59,11 +59,13 @@ const useAdminStore = create(
       getSpecializations: async () => {
         try {
           const res = await axiosApi.get(
-            "api/v1/doctor/get-all-specialization"
+            "/doctor/get-all-specialization"
           );
-          console.log(res.data.specializations);
-          set({ specializations: res.data.specializations });
-          return res.data.specializations;
+
+          set({ specializations: res.data.data?.map((dat) => dat?.name) || [] });
+          console.log(res.data.data);
+
+          return res.data.data;
         } catch (err) {
           toast.error(
             err.response?.data?.message || "Error fetching specializations"
@@ -112,8 +114,8 @@ const useAdminStore = create(
       },
       getCities: async () => {
         try {
-          const res = await axiosApi.get("/user/cities");
-          return res.data.cities;
+          const res = await axiosApi.get("/user/clinic/getallcliniccities");
+          return res.data.data;
         } catch (err) {
           console.log(err);
         }

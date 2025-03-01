@@ -52,7 +52,7 @@ const useAuthStore = create(
       signup: async (userData, role) => {
         set({ isLoading: true });
         try {
-          const response = await api.post(`/api/v1/${role}/sign-up`, userData);
+          const response = await api.post(`/${role}/sign-up`, userData);
           set({
             user: response.data.userObject,
             isLoading: false,
@@ -87,7 +87,7 @@ const useAuthStore = create(
         set({ isLoading: true });
 
         try {
-          const response = await api.post(`/api/v1/${role}/login`, credentials);
+          const response = await api.post(`/${role}/login`, credentials);
           // console.log("response", response);
           set({
             user: response.data.data.user,

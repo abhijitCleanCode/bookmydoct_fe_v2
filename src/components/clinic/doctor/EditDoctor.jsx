@@ -295,7 +295,7 @@ export default function EditDoctor({
 													<SelectValue />
 												</SelectTrigger>
 												<SelectContent>
-													{['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map(d => (
+													{['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(d => (
 														<SelectItem key={d} value={d}>{d}</SelectItem>
 													))}
 												</SelectContent>
