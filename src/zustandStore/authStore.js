@@ -57,7 +57,6 @@ const useAuthStore = create(
             user: response.data.userObject,
             isLoading: false,
           });
-          console.log(response);
           if (role == "clinic") {
             toast((t) => (
               <span className="flex">
@@ -88,7 +87,6 @@ const useAuthStore = create(
 
         try {
           const response = await api.post(`/${role}/login`, credentials);
-          // console.log("response", response);
           set({
             user: response.data.data.user,
             isLoading: false,

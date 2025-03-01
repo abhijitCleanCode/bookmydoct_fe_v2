@@ -15,7 +15,6 @@ const useClinicStore = create(
       try {
         set({ isLoading: true });
         const res = await api.get("/clinic/get-doctors");
-        console.log("res", res);
         set({ doctors: res.data.data.doctors });
         set({ isLoading: false });
       } catch (err) {

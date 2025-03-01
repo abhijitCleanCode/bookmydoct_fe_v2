@@ -28,7 +28,6 @@ export default function Login() {
             toast.error('Please fill in all fields');
             return;
         }
-        console.log(role);
 
         try {
             await login({ email: formData.email, password: formData.password }, role);

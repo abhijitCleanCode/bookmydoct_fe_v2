@@ -63,7 +63,6 @@ const useAdminStore = create(
           );
 
           set({ specializations: res.data.data?.map((dat) => dat?.name) || [] });
-          console.log(res.data.data);
 
           return res.data.data;
         } catch (err) {

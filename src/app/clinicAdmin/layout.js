@@ -24,7 +24,6 @@ export default function Layout({ children }) {
     ]);
 
     useEffect(() => {
-        console.log(path);
         const nav = navigation.map((item) => {
             return {
                 ...item,
