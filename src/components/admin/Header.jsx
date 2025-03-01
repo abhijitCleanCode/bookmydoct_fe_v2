@@ -14,7 +14,7 @@ import Image from 'next/image'
 import {   LogOutIcon, Menu, Plus } from 'lucide-react'
 import useAuthStore from '@/zustandStore/authStore'
 import { useRouter } from 'next/navigation'
-import { Button } from '../ui/Button'
+import { Button } from '../ui/button'
 
 function MobileNavLink({ href, children }) {
   return (

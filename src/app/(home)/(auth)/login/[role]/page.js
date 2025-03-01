@@ -7,7 +7,7 @@ import useAuthStore from '@/zustandStore/authStore';
 import toast from 'react-hot-toast';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { EyeClosed, EyeIcon, EyeOffIcon } from 'lucide-react';
 
 export default function Login() {
