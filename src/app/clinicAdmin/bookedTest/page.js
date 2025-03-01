@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useLayoutEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Calendar, Filter, Search } from "lucide-react";
 
 import useClinicStore from "@/zustandStore/clinicStore";

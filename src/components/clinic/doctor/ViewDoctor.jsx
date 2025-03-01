@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import useAuthStore from '@/zustandStore/authStore';
 import { Card, CardContent } from '@/components/ui/card';
 import { Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 
 export default function ViewDoctor({ isDrawerOpen, setIsDrawerOpen, doctor }) {
 	const { user } = useAuthStore();

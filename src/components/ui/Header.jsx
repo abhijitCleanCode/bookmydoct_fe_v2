@@ -9,7 +9,7 @@ import {
 } from '@headlessui/react'
 import clsx from 'clsx'
 import useAuthStore from '@/zustandStore/authStore'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { NavLink } from '@/components/ui/NavLink'
 import Image from 'next/image'

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useLayoutEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, Edit, Plus, Search, Trash } from "lucide-react";
 import useClinicStore from "@/zustandStore/clinicStore";
 import toast from "react-hot-toast";

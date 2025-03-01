@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { format, isToday, isTomorrow, isPast, isFuture } from "date-fns";
 import LoadingComp from "@/app/loading";
 import { CalendarDays, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
 export default function Appointments() {

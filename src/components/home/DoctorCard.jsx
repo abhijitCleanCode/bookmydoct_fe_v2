@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Button } from "../ui/button";
+import { Button } from "../ui/Button";
 import { useRouter } from "next/navigation"
 import { MapPin, Star, GraduationCap, Stethoscope } from 'lucide-react'
 

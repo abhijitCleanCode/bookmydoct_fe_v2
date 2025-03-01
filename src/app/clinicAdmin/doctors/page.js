@@ -2,7 +2,7 @@
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useLayoutEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { ChevronLeft, ChevronRight, Edit, Eye, Plus, Search, Trash, View } from "lucide-react";
 import AddDoctor from "@/components/clinic/doctor/AddDoctor";
 import useClinicStore from "@/zustandStore/clinicStore";

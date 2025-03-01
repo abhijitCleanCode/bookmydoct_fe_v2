@@ -1,5 +1,5 @@
 import { Microscope, Pill, Stethoscope, Video } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/Button"
 import Image from 'next/image'
 import { FaMicroscope, FaPills, FaStethoscope, FaVideo } from 'react-icons/fa'
 import Link from 'next/link'

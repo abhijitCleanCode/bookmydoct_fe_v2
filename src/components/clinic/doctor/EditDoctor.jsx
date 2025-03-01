@@ -16,7 +16,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { useEffect, useState } from 'react';
-import { Button } from '../../ui/button';
+import { Button } from '../../ui/Button';
 import { X, Plus, Clock } from 'lucide-react';
 
 import toast from 'react-hot-toast';

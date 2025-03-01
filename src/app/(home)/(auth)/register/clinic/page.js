@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, User, Eye, EyeOff, EyeClosed } from "lucide-react";
 import Image from "next/image";
@@ -75,7 +73,7 @@ export default function ClinicSignUp() {
     try {
       await signup(userdata, "clinic");
       router.replace("/login/clinic");
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const togglePassword = () => {
