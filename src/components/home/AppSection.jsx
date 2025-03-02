@@ -23,7 +23,7 @@ export default function AppSection () {
                         </div>
                         <div className="mt-8 text-center md:text-left">
                             <Link href="/">
-                                <Button className="px-8 py-3">Contact us</Button>
+                                <Button className="px-8 py-3">Coming Soon</Button>
                             </Link>
                         </div>
                     </div>

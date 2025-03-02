@@ -53,8 +53,11 @@ const useAuthStore = create(
         set({ isLoading: true });
         try {
           const response = await api.post(`/${role}/sign-up`, userData);
+          if (!response.data.success) {
+            throw new Error(response.data.message);
+          }
           set({
-            user: response.data.userObject,
+            user: response.data.data,
             isLoading: false,
           });
           if (role == "clinic") {
@@ -87,20 +90,26 @@ const useAuthStore = create(
 
         try {
           const response = await api.post(`/${role}/login`, credentials);
-          set({
-            user: response.data.data.user,
-            isLoading: false,
-          });
+          console.log(response);
+          if (response.data.success) {
+            set({
+              user: response.data.data.user,
+              isLoading: false,
+            });
 
-          Cookies.set("token", response.data.data.accessToken, {
-            secure: true,
-            sameSite: "strict",
-          });
-          Cookies.set("refreshToken", response.data.data.refreshToken, {
-            secure: true,
-            sameSite: "strict",
-          });
-          toast.success("Login successful");
+            Cookies.set("token", response.data.data.accessToken, {
+              secure: true,
+              sameSite: "strict",
+            });
+            Cookies.set("refreshToken", response.data.data.refreshToken, {
+              secure: true,
+              sameSite: "strict",
+            });
+            toast.success("Login successful");
+          } else {
+            toast.error(response.data.message);
+          }
+
         } catch (error) {
           set({
             isLoading: false,
@@ -138,6 +147,9 @@ const useAuthStore = create(
         set({ isLoading: true });
         try {
           const response = await api.put(`/auth/${role}/edit`, userData);
+          if (!response.data.success) {
+            throw new Error(response.data.message);
+          }
           set({
             isLoading: false,
             user: response.data.user,

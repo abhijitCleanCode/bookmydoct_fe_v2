@@ -21,16 +21,12 @@ const Home = () => {
 
 
     const [isLoading, setIsLoading] = useState(false);
-    const [isCitiesLoading, setIsCitiesLoading] = useState(false);
-
-    // Show loading when either doctors or cities are loading
-    const showLoading = isLoading || isCitiesLoading;
 
     return (
         <main>
-            {showLoading && <LoadingComp />}
-            <div className={`transition-opacity duration-200 ${showLoading ? 'hidden' : ''}`}>
-                <Hero setIsLoading={setIsCitiesLoading} setIsSearching={setIsSearching} setSearchLoading={setSearchLoading} setSearchResults={setSearchResults} />
+
+            <div className={`transition-opacity duration-200`}>
+                <Hero setIsSearching={setIsSearching} setSearchLoading={setSearchLoading} setSearchResults={setSearchResults} />
                 {isSearching ? (
                     searchLoading ? (
                         <LoadingComp />
@@ -51,7 +47,7 @@ const Home = () => {
                     <Process />
                     <SpecializationsSection />
                     <Features />
-                    <DoctorsSection setIsLoading={setIsLoading} />
+                    {/* <DoctorsSection setIsLoading={setIsLoading} /> */}
                     <AppSection />
                 </>}
             </div>

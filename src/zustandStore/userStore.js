@@ -80,6 +80,7 @@ export const userStore = create((set) => ({
   },
   search: async (location, searchOn, query) => {
     try {
+      console.log(location, searchOn, query);
       const res = await api.get(
         `/user/get-all-data?location=${location}&searchOn=${searchOn}&query=${query}`
       );

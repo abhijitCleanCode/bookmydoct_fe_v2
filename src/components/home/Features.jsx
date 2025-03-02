@@ -9,8 +9,8 @@ const services = [
     icon: FaMicroscope,
     title: "Book Lab Test",
     description: "Get accurate diagnostics with our state-of-the-art lab facilities.",
-    action: "Book Now",
-    href: "/labTest",
+    action: "Coming Soon",
+    href: "/",
     image: "/booklabtest.jpg"
   },
   {

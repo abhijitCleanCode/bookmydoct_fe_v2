@@ -10,6 +10,7 @@ const useAdminStore = create(
       bookingCommissionStore: 0,
       labTestCommissionPercentageStore: 0,
       specializations: [],
+      cities: [],
       fetchLatesConstants: async () => {
         try {
           const res = await axiosApi.get("/admin/get/commission-details");
@@ -114,6 +115,9 @@ const useAdminStore = create(
       getCities: async () => {
         try {
           const res = await axiosApi.get("/user/clinic/getallcliniccities");
+          if (res.data.success) {
+            set({ cities: res.data.data });
+          }
           return res.data.data;
         } catch (err) {
           console.log(err);

@@ -12,12 +12,11 @@ import {  useSearchParams } from 'next/navigation'
 
 
 
-export function Hero({ setIsLoading, setIsSearching, setSearchLoading, setSearchResults }) {
+export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
   const [searchOn, setSearchOn] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
-  const [cities, setCities] = useState([]);
   const [city, setCity] = useState('');
-  const { getCities } = useAdminStore();
+  const { getCities, cities } = useAdminStore();
   const {search} = userStore();
   const params = useSearchParams();
 
@@ -38,7 +37,7 @@ export function Hero({ setIsLoading, setIsSearching, setSearchLoading, setSearch
                 setSearchLoading(true);
                 search(city === "all" ? "" : city, searchOn, searchQuery).then((data) => {
                     if (searchOn === 'clinic') {
-                        const clinics = data.data.map((clinic) => {
+                        const clinics = data.map((clinic) => {
                             return {
                                 id: clinic._id,
                                 name: clinic?.name,
@@ -50,7 +49,7 @@ export function Hero({ setIsLoading, setIsSearching, setSearchLoading, setSearch
                         setSearchResults(clinics)
                         setSearchLoading(false);
                     } else {
-                        const doctors = data.data.map((doctor) => {
+                        const doctors = data.map((doctor) => {
                             return {
                                 id: doctor._id,
                                 name: doctor?.fullName,
@@ -79,30 +78,8 @@ export function Hero({ setIsLoading, setIsSearching, setSearchLoading, setSearch
 
 
   useLayoutEffect(() => {
-    let mounted = true;
-    
-    const loadCities = async () => {
-      try {
-        setIsLoading(true);
-        const res = await getCities();
-        if (mounted) {
-          setCities(res || []);
-        }
-      } catch (e) {
-        console.log(e);
-      } finally {
-        if (mounted) {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    loadCities();
-
-    return () => {
-      mounted = false;
-    };
-  }, [getCities, setIsLoading]);
+    getCities();
+  }, []);
 
   return (
     <>
