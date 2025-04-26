@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { format, isToday, isTomorrow, isPast, isFuture } from "date-fns";
 import LoadingComp from "@/app/loading";
 import { CalendarDays, Clock } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Appointments() {
@@ -100,8 +100,13 @@ export default function Appointments() {
     };
 
     const EmptyState = () => (
-        <div className="text-center py-12 min-h-screen border flex items-center justify-center space-y-4">
+        <div className="text-center py-12 space-y-4">
             <div className="max-w-md mx-auto">
+                <img
+                    src="/no-appointments.svg"
+                    alt="No appointments"
+                    className="w-64 h-64 mx-auto mb-6"
+                />
                 <h2 className="text-xl font-semibold text-gray-900">No Appointments Found</h2>
                 <p className="text-gray-600 mt-2 mb-6">You haven't booked any appointments yet.</p>
                 <Link href="/doctors">

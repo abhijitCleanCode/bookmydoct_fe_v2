@@ -7,6 +7,7 @@ import useAuthStore from '@/zustandStore/authStore';
 import toast from 'react-hot-toast';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 import { EyeClosed, EyeIcon, EyeOffIcon } from 'lucide-react';
 
 export default function Login() {
@@ -28,6 +29,7 @@ export default function Login() {
             toast.error('Please fill in all fields');
             return;
         }
+        console.log(role);
 
         try {
             await login({ email: formData.email, password: formData.password }, role);

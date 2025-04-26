@@ -59,6 +59,7 @@ export default function CommissionsPage() {
             }
             setIsloading(true);
             try {
+                console.log(formdata);
                 await setConstants(formdata);
                 toast.success("Updated Sucessfully");
                 setIsloading(false);

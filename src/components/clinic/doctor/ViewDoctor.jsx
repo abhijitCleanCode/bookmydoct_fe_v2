@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import useAuthStore from '@/zustandStore/authStore';
 import { Card, CardContent } from '@/components/ui/card';
 import { Clock } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export default function ViewDoctor({ isDrawerOpen, setIsDrawerOpen, doctor }) {
 	const { user } = useAuthStore();
@@ -95,15 +95,15 @@ export default function ViewDoctor({ isDrawerOpen, setIsDrawerOpen, doctor }) {
 
 							<div className='space-y-4'>
 								{doctor?.appointmentsSchedule
-									.find((clinic) => clinic.clinicId === user.clinicId.id)
-									?.schedule.length === 0 ? (
+									.find((clinic) => clinic.clinicId === user.clinicId)
+									.schedule.length === 0 ? (
 									<div className='text-center py-4 text-gray-500'>
 										No schedule added
 									</div>
 								) : (
 									doctor?.appointmentsSchedule
 										.find((clinic) => clinic.clinicId === user.clinicId)
-										?.schedule.map((day) => (
+										.schedule.map((day) => (
 											<Card key={day?._id} className='p-1 md:p-4 border border-gray-200'>
 												<div className='flex items-center justify-between gap-4'>
 													<div className='bg-muted rounded-lg px-4 py-2 w-24 text-center'>

@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { format, isToday, isTomorrow, isPast, isFuture } from "date-fns";
 import LoadingComp from "@/app/loading";
 import { CalendarDays, Clock, Search, Filter } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
     Select,

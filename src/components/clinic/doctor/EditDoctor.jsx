@@ -16,7 +16,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { useEffect, useState } from 'react';
-import { Button } from '../../ui/Button';
+import { Button } from '../../ui/button';
 import { X, Plus, Clock } from 'lucide-react';
 
 import toast from 'react-hot-toast';
@@ -295,7 +295,7 @@ export default function EditDoctor({
 													<SelectValue />
 												</SelectTrigger>
 												<SelectContent>
-													{['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(d => (
+													{['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map(d => (
 														<SelectItem key={d} value={d}>{d}</SelectItem>
 													))}
 												</SelectContent>

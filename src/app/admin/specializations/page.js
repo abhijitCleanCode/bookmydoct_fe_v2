@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import useAdminStore from '@/zustandStore/adminStore';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Loader2, Plus, Trash2 } from 'lucide-react';
 import {

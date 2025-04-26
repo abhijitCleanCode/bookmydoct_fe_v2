@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import useAdminStore from '@/zustandStore/adminStore';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { LoaderCircle, Building2, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 
 export default function VerifyClinicsPage() {

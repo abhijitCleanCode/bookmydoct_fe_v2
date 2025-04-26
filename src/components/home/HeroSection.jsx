@@ -12,13 +12,22 @@ import {  useSearchParams } from 'next/navigation'
 
 
 
-export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
+export function Hero({  setIsSearching, setSearchResults , setIsLoading }) {
   const [searchOn, setSearchOn] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [city, setCity] = useState('');
   const { getCities, cities } = useAdminStore();
   const {search} = userStore();
   const params = useSearchParams();
+  const [iscitiesLoading, setIsCitiesLoading] = useState(false);
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   useEffect(() => {
         const specialization = params.get('specialization');
@@ -29,15 +38,15 @@ export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
     }, [])
 
   useEffect(() => {
-        if (searchQuery || city || searchOn) {
+        if (debouncedSearchQuery || city || searchOn) {
             if (searchOn === 'none') {
                 setIsSearching(false);
             } else {
-                setIsSearching(true);
-                setSearchLoading(true);
-                search(city === "all" ? "" : city, searchOn, searchQuery).then((data) => {
+                setIsSearching(true); 
+                setIsLoading(true);
+                search(city === "all" ? "" : city, searchOn, debouncedSearchQuery).then((data) => {
                     if (searchOn === 'clinic') {
-                        const clinics = data.map((clinic) => {
+                        const clinics = data.data.map((clinic) => {
                             return {
                                 id: clinic._id,
                                 name: clinic?.name,
@@ -47,9 +56,9 @@ export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
                             }
                         })
                         setSearchResults(clinics)
-                        setSearchLoading(false);
+                  
                     } else {
-                        const doctors = data.map((doctor) => {
+                        const doctors = data.data.map((doctor) => {
                             return {
                                 id: doctor._id,
                                 name: doctor?.fullName,
@@ -60,25 +69,36 @@ export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
                                 role: 'doctor'
                             }
                         })
-                        setSearchResults(doctors)
-                        setSearchLoading(false);
-
+                        setSearchResults(doctors);
+                      
                     }
+                    setIsLoading(false);
                 }).catch((err) => {
                     console.log(err);
                     setIsSearching(false);
-                    setSearchLoading(false);
+                    setIsLoading(false);
                 })
             }
         } else {
             setSearchResults([]);
-            setIsSearching(false)
+            setIsSearching(false);
+            setIsLoading(false);
         }
-    }, [searchQuery, city, searchOn])
+    }, [debouncedSearchQuery, city, searchOn])
 
 
   useLayoutEffect(() => {
-    getCities();
+    if(!cities || cities.length === 0){
+      setIsCitiesLoading(true);
+      getCities().then((cities)=>{
+        if(cities){
+          setIsCitiesLoading(false);
+        }
+      }).catch((err)=>{
+        console.log(err);
+        setIsCitiesLoading(false);
+      })
+    }
   }, []);
 
   return (
@@ -115,7 +135,7 @@ export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
                         <SelectContent className="bg-white text-black">
                             <SelectGroup className="w-full">
                                 <SelectItem value="all">All</SelectItem>
-                                {cities?.map((city, idx) => <SelectItem key={idx} value={city}>{city}</SelectItem>)}
+                                {iscitiesLoading ? <SelectItem value="loading">Loading...</SelectItem> : cities?.map((city, idx) => <SelectItem key={idx} value={city}>{city}</SelectItem>)}
                             </SelectGroup>
                         </SelectContent>
                     </Select>
@@ -145,7 +165,7 @@ export function Hero({  setIsSearching, setSearchLoading, setSearchResults }) {
       </div>
 
       </div>
-         <CardContainer className="py-0 p-5">
+         <CardContainer className="py-0 p-5 hidden md:block">
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
         
         <CardItem translateZ="100" className="w-full mt-4">

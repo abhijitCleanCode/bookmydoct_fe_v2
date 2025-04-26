@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { userStore } from "@/zustandStore/userStore"
 import { format } from "date-fns"
@@ -103,7 +103,7 @@ export default function Component() {
         const appointment = { ...labTestAppointment, labTestIds: selectedLabTestsIds, clinicId: selectedClinic, appointmentDate: format(new Date(), 'dd-MM-yyyy') };
 
         if (!user) {
-            router.replace('/signin/patient')
+            router.replace('/login/patient')
             toast.error('Please login to book an appointment')
         }
         setIsloading(true);

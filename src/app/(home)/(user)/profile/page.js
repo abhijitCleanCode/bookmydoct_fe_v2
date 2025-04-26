@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -180,10 +180,10 @@ export default function UserProfile() {
                         <div className="mt-8 border-t pt-6">
                             <Dialog>
                                 <DialogTrigger >
-                                    <div className="w-full p-2 md:w-auto flex items-center justify-center space-x-2 border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50">
+                                    <Button variant="solid" className="w-full md:w-auto flex items-center justify-center space-x-2 border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50">
                                         <Lock className="w-5 h-5" />
                                         <span>Change Password</span>
-                                    </div>
+                                    </Button>
                                 </DialogTrigger>
                                 <DialogContent className="sm:max-w-md">
                                     <DialogHeader>

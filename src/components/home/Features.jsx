@@ -1,5 +1,5 @@
 import { Microscope, Pill, Stethoscope, Video } from 'lucide-react'
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import { FaMicroscope, FaPills, FaStethoscope, FaVideo } from 'react-icons/fa'
 import Link from 'next/link'
@@ -9,8 +9,8 @@ const services = [
     icon: FaMicroscope,
     title: "Book Lab Test",
     description: "Get accurate diagnostics with our state-of-the-art lab facilities.",
-    action: "Coming Soon",
-    href: "/",
+    action: "Book Now",
+    href: "/labTest",
     image: "/booklabtest.jpg"
   },
   {
