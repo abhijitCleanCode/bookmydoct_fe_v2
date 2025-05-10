@@ -35,7 +35,7 @@ export function Hero({  setIsSearching, setSearchResults , setIsLoading }) {
             setSearchOn('specialization');
             setSearchQuery(specialization);
         }
-    }, [])
+    }, [params])
 
   useEffect(() => {
         if (debouncedSearchQuery || city || searchOn) {
