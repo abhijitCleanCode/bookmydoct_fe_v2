@@ -11,7 +11,7 @@ export default function privacyPolicy() {
                     <div className="hover:bg-blue-50 p-6 rounded-xl transition-colors duration-300">
                         <h2 className="text-2xl font-semibold text-primary mb-4">Introduction</h2>
                         <p className="text-gray-700 leading-relaxed">
-                            Welcome to BookMyDoct, a DBA of Indian Cyber Excellence Institute. At Indian Cyber Excellence Institute, your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, www.bookmydoct.com, including any other media form, media channel, mobile website, or mobile application related or connected thereto.
+                            Welcome to BookMyDoct, a DBA of SUDAMASOLUTIONS TECHNOLOGIES & HEALTH CARE PVT LTD. At SUDAMASOLUTIONS TECHNOLOGIES & HEALTH CARE PVT LTD, your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, www.bookmydoct.com, including any other media form, media channel, mobile website, or mobile application related or connected thereto.
                         </p>
                         <p className="text-gray-700 leading-relaxed mt-4">
                             By accessing or using our website, you consent to the terms of this Privacy Policy. If you do not agree, please do not use our site.
