@@ -8,7 +8,7 @@ const links = [
       icon: (
         <FaBone className="h-full w-full text-neutral-500 " />
       ),
-      href: "#",
+      href: "?specialization=Orthopedics",
     },
  
     {
@@ -16,14 +16,14 @@ const links = [
       icon: (
         <FaHeart className="h-full w-full text-neutral-500 " />
       ),
-      href: "#",
+      href: "?specialization=Cardiologist",
     },
     {
       title: "Dentist",
       icon: (
         <FaTooth className="h-full w-full text-neutral-500 " />
       ),
-      href: "#",
+      href: "?specialization=Dentist",
     },
     {
       title: "View All",
