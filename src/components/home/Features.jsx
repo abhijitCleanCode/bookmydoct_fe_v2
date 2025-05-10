@@ -25,7 +25,7 @@ const services = [
     icon: FaStethoscope,
     title: "Book Surgery",
     description: "Schedule consultations with expert surgeons for your medical needs.",
-    action: "Coming Soon",
+    action: "Book Surgery",
     href: "/surgery",
     image: "/surgery.jpg"
   },
