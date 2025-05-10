@@ -35,7 +35,7 @@ export default function termsAndConditions() {
                     <div className="hover:bg-blue-50 p-6 rounded-xl transition-colors duration-300">
                         <h2 className="text-2xl font-semibold text-primary mb-4">3. Intellectual Property</h2>
                         <p className="text-gray-700 leading-relaxed">
-                            All content on BookMyDoct, including text, graphics, logos, and software, is the intellectual property of Indian Cyber Excellence Institute and is protected by applicable copyright, trademark, and other intellectual property laws. Unauthorized use or reproduction is prohibited without prior written consent.
+                            All content on BookMyDoct, including text, graphics, logos, and software, is the intellectual property of SUDAMASOLUTIONS TECHNOLOGIES & HEALTH CARE PVT LTD and is protected by applicable copyright, trademark, and other intellectual property laws. Unauthorized use or reproduction is prohibited without prior written consent.
                         </p>
                     </div>
 
