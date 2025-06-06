@@ -192,7 +192,7 @@ export default function AppointmentBookingForm() {
           name: "BookMyDoct",
           description: "Book Appointment",
           order_id: `${res.order_id}`, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-          callback_url: `http://localhost:4000/user/payment-success/appointment/redirect`,
+          callback_url: `https://bookmydoct-be-iota.vercel.app/user/payment-success/appointment/redirect`,
           theme: {
             color: "#3399cc",
           },
