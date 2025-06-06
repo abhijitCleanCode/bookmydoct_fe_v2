@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 
 const axiosApi = axios.create({
-  baseURL: "http://localhost:4000/", // exposing the env variable to the client (browser)
+  baseURL: process.env.NEXT_PUBLIC_API_URL, // exposing the env variable to the client (browser)
   headers: {
     "Content-Type": "application/json",
     "ngrok-skip-browser-warning": "69420",
